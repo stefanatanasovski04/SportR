@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DetailedView</title>
+</head>
+<body>
+{% extends 'store/home.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="detailImage" src="{{ product.image.url }}">
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    {% for size in sizes %}
+                        <label class="col-3 btn btn-outline-success" for="{{ size.size }}">{{ size.size }}</label><br>
+                        <input type="radio" id="{{ size.size }}" name="size" value="{{ size.size }}">
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <button style="width: 100%" id="addToCart" data-action="add" class="btn btn-secondary add-btn ">Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
+
+</body>
+</html>
