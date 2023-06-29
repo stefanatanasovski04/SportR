@@ -13,7 +13,7 @@
         <div class="col-lg-12">
             <div class="box-element">
 
-                <a class="btn btn-outline-dark" href="{% url 'home' %}">&#x2190;Continue Shopping</a>
+                <a class="btn btn-outline-dark" href="{% url 'sneakers' %}">&#x2190;Continue Shopping</a>
                 <br>
                 <br>
                 <table class="table">
@@ -33,19 +33,27 @@
                 <div class="cart-row">
                     <div style="flex:2"></div>
                     <div style="flex:2"><strong>Item</strong></div>
+                    <div style="flex:2"><strong>Size</strong></div>
                     <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:1"></div>
+
 {#                    <div style="flex:1"><strong>Quantity</strong></div>#}
                 </div>
                 {% for item in items %}
                 <div class="cart-row">
                     <div  style="flex:2"><img class="row-image" src="{{ item.product.image.url }}"></div>
-                    <div style="flex:2"><p>{{ item.product.name }} ( {{ item.size }} )</p></div>
+                    <div style="flex:2"><p>{{ item.product.name }}</p></div>
+                    <div style="flex:2"><p>Size: {{ item.size }}</p></div>
                     <div style="flex:1"><p>${{ item.product.price }}</p></div>
+                    <div style="flex:1; ">
+                        <button data-item="{{ item.id }}" style="width: 30px; height: 30px" data-action="remove" class="btn-sm btn-outline-danger update-cart ">X</button>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </div>
+
 {% endblock content %}
 
 </body>
