@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+# username: admin; password: admin - superuser
+# username: customer1; password: user1234;
+# username: customer2; password: user1234;
+# username: supplier1; password: user1234;
 
 
 class Customer(models.Model):

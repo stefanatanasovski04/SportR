@@ -150,7 +150,7 @@
         let sz = "";
         sizes_input = document.getElementById('sizes_input');
         let selectedSizes = document.querySelectorAll('input[name="add-size"]');
-        console.log(selectedSizes)
+        {#console.log(selectedSizes)#}
         for (let i=0; i<selectedSizes.length; i++){
             selectedSizes[i].addEventListener('click', function (){
                 let tmp = selectedSizes[i].value
@@ -166,7 +166,7 @@
                 }
                 str =str.slice(0,-1)
                 sizes_input.value = str;
-                console.log(sizes_input.value)
+                {#console.log(sizes_input.value)#}
             })
         }
 

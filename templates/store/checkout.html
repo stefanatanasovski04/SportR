@@ -116,7 +116,7 @@
         var form = document.getElementById('form');
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            console.log('Form Submitted....')
+            {#console.log('Form Submitted....')#}
             document.getElementById('form-button').classList.add('hidden');
             document.getElementById('payment-info').classList.remove('hidden');
         })
@@ -126,7 +126,7 @@
         })
 
         function submitFormData() {
-            console.log("Data is submitted");
+            {#console.log("Data is submitted");#}
 
             var userFormData = {
                 'name': null,
@@ -166,8 +166,8 @@
                     return response.json()
                 })
                 .then((data) => {
-                    console.log('Success: ', data)
-                    alert(`Transaction completed ${shippingInfo.city}  ${shippingInfo.address} ${shippingInfo.postalCode}`)
+                    {#console.log('Success: ', data)#}
+                    {#alert(`Transaction completed ${shippingInfo.city}  ${shippingInfo.address} ${shippingInfo.postalCode}`)#}
                     window.location.href = "{% url 'order_confirmation' %}"
                 })
         }

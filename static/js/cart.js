@@ -2,10 +2,10 @@ let updateBtns = document.getElementsByClassName('item');
 for (let i = 0; i < updateBtns.length; i++) {
     updateBtns[i].addEventListener('click', function () {
         let productId = this.dataset.product
-        console.log()
-        console.log('productId: ' + productId);
+        // console.log()
+        // console.log('productId: ' + productId);
 
-        console.log("User: ", user)
+        // console.log("User: ", user)
         if (user == "AnonymousUser") {
             console.log("User is not authenticated")
         } else {
@@ -19,10 +19,10 @@ for (let i = 0; i < cartDelete.length; i++) {
     cartDelete[i].addEventListener('click', function () {
         let itemId = this.dataset.item;
         let action = this.dataset.action;
-        console.log()
+        // console.log()
 
-        console.log(itemId)
-        console.log(action)
+        // console.log(itemId)
+        // console.log(action)
 
         if (user == "AnonymousUser") {
             console.log("User is not authenticated")
@@ -64,7 +64,7 @@ function deleteItem(itemId, action) {
             return response.json()
         })
         .then((data) => {
-            console.log('Data: ', data)
+            // console.log('Data: ', data)
             location.reload()
         })
 }
@@ -84,13 +84,13 @@ function updateItem(size, action) {
             return response.json()
         })
         .then((data) => {
-            console.log('Data: ', data)
+            // console.log('Data: ', data)
             location.assign('http://127.0.0.1:8000/cart')
         })
 }
 
 function goToDetailedView(productId) {
-    console.log('User is authenticated, sending data..')
+    // console.log('User is authenticated, sending data..')
 
     let url = '/go_to_detailed_view/'
 
@@ -106,7 +106,7 @@ function goToDetailedView(productId) {
             return response.json()
         })
         .then((data) => {
-            console.log('Data: ', data)
+            // console.log('Data: ', data)
             location.assign("http://127.0.0.1:8000/detailedView")
         })
 }
