@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Confirmation</title>
     <style>
-        .row{
+        .row {
             height: 500px;
         }
     </style>
@@ -14,17 +14,19 @@
 {% load static %}
 {% block content %}
 
-    <div class="container">
-        <div class="row">
-            <h1>Payment Successful</h1>
+    <div class="container mt-3">
+        <div class="text-center bg-dark border p-5 mt-5">
+            <h4 class="text-success">You order was successful. Conformation will be sent to your e-mail address and our
+                delivery guy will contact you on your phone to give you the package. Thank you</h4>
 
+            <br>
+            <br>
+
+            <a class="btn btn-success w-50" href="http://127.0.0.1:8000/sneakers">Countinue Shopping</a>
         </div>
-    <a class="btn btn-success" href="http://127.0.0.1:8000/sneakers">Countinue Shopping</a>
     </div>
 
-
 {% endblock content %}
-
 
 </body>
 </html>

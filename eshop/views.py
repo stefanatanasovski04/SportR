@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.http import JsonResponse
 import json
@@ -162,4 +162,16 @@ def get_add_product(request):
                 product=product,
                 size=int(i),
             )
+        return redirect('confirmation_for_product')
     return render(request, 'store/addProduct.html')
+
+
+def successfully_added(request):
+    return render(request, 'store/productAddedSucessfully.html')
+
+
+# def delete(request):
+#     items = OrderItem.objects.all()
+#     for i in items:
+#         i.delete()
+#     return render(request,'store/addProduct.html')

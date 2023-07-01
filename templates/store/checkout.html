@@ -8,9 +8,11 @@
 {% extends 'store/home.html' %}
 {% load static %}
 {% block content %}
+    <div class="container mt-3">
+
     <div class="row">
         <div class="col-lg-6">
-            <div class="box-element" id="form-wrapper">
+            <div class="box-element text-white" id="form-wrapper">
                 <form id="form">
                     <div id="user-info">
                         <p>User Info:</p>
@@ -48,7 +50,7 @@
                     <input id="form-button" class="btn btn-success btn-block" type="submit" value="Countinue">
                 </form>
             </div>
-            <div class="box-element hidden" id="payment-info">
+            <div class="box-element hidden mt-3" id="payment-info">
                 <div id="payment-form-card">
                     <p>Card details:</p>
                     <hr>
@@ -104,6 +106,7 @@
             </div>
         </div>
     </div>
+        </div>
 
     <script>
         var total =

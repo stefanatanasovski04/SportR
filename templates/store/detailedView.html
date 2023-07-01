@@ -17,6 +17,7 @@
 {% extends 'store/home.html' %}
 {% load static %}
 {% block content %}
+    <div class="container">
 
         <br>
         <br>
@@ -34,9 +35,9 @@
                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4" style="width: 100%">
                     {% for size in sizes %}
                         <div class="itm">
-                            <label class="btn btn-outline-danger c-label"
+                            <input class="btn btn-primary"type="radio" id="{{ size.size }}" name="size" value="{{ size.size }}">
+                            <label class="btn btn-secondary c-label"
                                    for="{{ size.size }}">{{ size.size }}</label>
-                            <input type="radio" id="{{ size.size }}" name="size" value="{{ size.size }}">
                         </div>
 
                     {% endfor %}
@@ -51,12 +52,8 @@
                 </div>
             </div>
         </div>
+    </div>
 
-
-
-
-
-{% endblock %}
-
+{% endblock content %}
 </body>
 </html>

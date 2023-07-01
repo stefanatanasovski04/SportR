@@ -33,7 +33,9 @@ urlpatterns = [
     path('process_order/', views.processOrder, name='process_order'),
     path('order_successful', views.order_confirmation, name='order_confirmation'),
     path('get_add_product/', views.get_add_product, name='get_add_product'),
-    # path('add_product/', views.add_product,name='add_product')
+    path('confirmation_for_product/', views.successfully_added, name='confirmation_for_product'),
+
+    # path('delete/', views.delete,name='delete')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -8,32 +8,38 @@
 {% extends 'store/home.html' %}
 {% load static %}
 {% block content %}
-    <div class="row">
-        {% for product in products %}
-            <div style="border-radius: 10px " class="col-lg-4">
-            {% if product.image.url != null %}
-                <img class="thumbnail " src="{{ product.image.url }}">
-                {% else %}
-                <img class="thumbnail " src="{% static 'images/no-image.png' %}">
-                {% endif %}
-                <div class="box-element product">
-                    <h6><strong>{{ product.name }}</strong></h6>
-                    <hr>
-{#                    <form method="POST" action="">#}
-{#                        {% csrf_token %}#}
-                         <button data-product="{{ product.id }}" data-action="add"
-                            class="btn btn-outline-secondary add-btn item ">View
-                         </button>
-{#                    </form>#}
+    <div class="container mt-3">
+        <div class="row">
+            {% for product in products %}
+                <div style="border-radius: 10px " class="col-lg-4 mt-3">
+                   <div class="inner">
+                    <div class="box-img">
+                        {% if product.image.url != null %}
+                        <img class="thumbnail " src="{{ product.image.url }}">
+                    {% else %}
+                        <img class="thumbnail " src="{% static 'images/no-image.png' %}">
+                    {% endif %}
+                    </div>
+                    <div class="box-element product">
+                        <h6 class="text-white">{{ product.name }}</h6>
+                        <hr>
+                        {#                    <form method="POST" action="">#}
+                        {#                        {% csrf_token %}#}
+                        <button data-product="{{ product.id }}" data-action="add"
+                                class="btn btn-secondary add-btn item ">View
+                        </button>
+                        {#                    </form>#}
 
 
+                        <h4 class="text-white" style="display: inline-block; float: right">${{ product.price }}</h4>
+                    </div>
 
-                    <h4 style="display: inline-block; float: right">${{ product.price }}</h4>
+                   </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-{% endblock content %}
 
+{% endblock content %}
 </body>
 </html>

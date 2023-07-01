@@ -2,26 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Access Denied</title>
+    <title>Confirmation</title>
 </head>
 <body>
 {% extends 'store/home.html' %}
 {% load static %}
-
 {% block content %}
-    <div class="container mt-5">
+
+    <div class="container mt-3">
         <div class="text-center bg-dark border p-5 mt-5">
-            <h4 class="text-danger">You do now have permission for this action!</h4>
+            <h4 class="text-success">You added your product successfully</h4>
 
             <br>
             <br>
 
-            <a class="btn btn-success w-50" href="http://127.0.0.1:8000/sneakers">Countinue Shopping</a>
+            <a class="btn btn-success w-50" href="http://127.0.0.1:8000/get_add_product">Add another Product</a>
         </div>
     </div>
 
 {% endblock content %}
-
 
 </body>
 </html>
