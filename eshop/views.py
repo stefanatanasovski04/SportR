@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
 import json
 import datetime
+from django.template.defaulttags import register
 
 
 # Create your views here.
@@ -120,3 +121,45 @@ def processOrder(request):
 def order_confirmation(request):
     return render(request, 'store/orderSuccessful.html')
 
+
+def get_add_product(request):
+    if not request.user.is_superuser:
+        return render(request, 'store/accessDenied.html')
+
+    @register.filter(name='split')
+    def split(value):
+        return value.split(',')
+
+    if request.method == 'POST':
+        data = request.POST
+        image = request.FILES.get('photo')
+        print('Data: ', data)
+        name = data['name']
+        price = data['price']
+        availablePieces = data['availablePieces']
+        sizes = data['sizes_input']
+        print(name)
+        print(price)
+        print(availablePieces)
+        print(image)
+        print(sizes)
+
+        size_list = split(sizes)
+        print(size_list)
+
+        for i in size_list:
+            print(i)
+
+        product = Product.objects.create(
+            name=name,
+            price=int(price),
+            image=image,
+            available_pieces=int(availablePieces)
+        )
+        #
+        for i in size_list:
+            ProductSizes.objects.create(
+                product=product,
+                size=int(i),
+            )
+    return render(request, 'store/addProduct.html')

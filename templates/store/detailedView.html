@@ -3,33 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>DetailedView</title>
+    <style>
+        .itm {
+            width: 25%;
+        }
+
+        .c-label {
+            width: 70%;
+        }
+    </style>
 </head>
 <body>
 {% extends 'store/home.html' %}
 {% load static %}
 {% block content %}
-    <div class="container">
+
+        <br>
+        <br>
+        <br>
         <div class="row">
+
             <div class="col-lg-6">
-                <img class="detailImage" src="{{ product.image.url }}">
+                {% if product.image.url != null %}
+                    <img style="width: 100%" class="detailImage" src="{{ product.image.url }}">
+                {% else %}
+                    <img style="width: 100%" class="detailImage" src="{% static 'images/no-image.png' %}">
+                {% endif %}
             </div>
-            <div class="col-lg-6">
-                <div class="row">
+            <div class="col-lg-6 mt-4">
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4" style="width: 100%">
                     {% for size in sizes %}
-                        <label class="col-3 btn btn-outline-success" for="{{ size.size }}">{{ size.size }}</label><br>
-                        <input type="radio" id="{{ size.size }}" name="size" value="{{ size.size }}">
+                        <div class="itm">
+                            <label class="btn btn-outline-danger c-label"
+                                   for="{{ size.size }}">{{ size.size }}</label>
+                            <input type="radio" id="{{ size.size }}" name="size" value="{{ size.size }}">
+                        </div>
+
                     {% endfor %}
                 </div>
+                <br><br>
                 <div class="row">
-                    <button style="width: 100%" id="addToCart" data-action="add" class="btn btn-secondary add-btn ">Add to Cart</button>
-{#                    <button style="width: 100%" name="addToCart" data-action="add" class="btn btn-secondary add-btn ">Add to Cart</button>#}
+                    <button style="width: 100%" id="addToCart" data-action="add" class="btn btn-success add-btn ">Add to
+                        Cart
+                    </button>
+                    {#                    <button style="width: 100%" name="addToCart" data-action="add" class="btn btn-secondary add-btn ">Add to Cart</button>#}
 
                 </div>
             </div>
         </div>
 
 
-    </div>
 
 
 

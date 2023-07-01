@@ -30,7 +30,7 @@
     </script>
 </head>
 
-<body>
+<body style="background-image: url('{% static 'images/Web-Page-Background-Color.jpg' %}'); height: 800px; background-size: 100%; ">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{% url 'home' %}">SportR</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -55,6 +55,7 @@
         </ul>
         <div class="from-inline my-2 my-lg-0">
             <a class="btn btn-light" href="http://127.0.0.1:8000/admin/login"> Login</a>
+            <a class="btn btn-light" href="http://127.0.0.1:8000/get_add_product"> Add Product</a>
 
             <a href="{% url 'cart' %}">
                 <img id="cart-icon" src="{% static 'images/cart.png' %}">
@@ -64,11 +65,19 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container" >
 
 
 
     {% block content %}
+        <div class="row">
+            <div class="col-lg-10 offset-1">
+                <img style="width: 100%; height:70%" src="{% static 'images/Discount.png' %}">
+                <a style="width: 100%; border-radius: 10px; " class="btn btn-lg btn-success" href="http://127.0.0.1:8000/sneakers">SHOP NOW</a>
+            </div>
+
+
+        </div>
     {% endblock content %}
 </div>
 

@@ -32,7 +32,7 @@ class Product(models.Model):
     available_pieces = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     @property
     def image_url(self):
@@ -71,7 +71,7 @@ class OrderItem(models.Model):
     size = models.IntegerField(null=True)
 
     def __str__(self):
-        return self.product.name + " ( " + str(self.size) + " )"
+        return str(self.product.name + " ( " + str(self.size) + " )")
 
     @property
     def get_total(self):
@@ -88,7 +88,7 @@ class ShippingAddress(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.address + " " + self.city
+        return str(self.address + " " + self.city)
 
 
 class ProductSizes(models.Model):
@@ -96,4 +96,4 @@ class ProductSizes(models.Model):
     size = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.product.name + " ( " + str(self.size) + " )"
+        return str(self.product.name + " ( " + str(self.size) + " )")

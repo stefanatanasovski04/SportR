@@ -19,6 +19,7 @@ h1,h2,h3,h4,h5,h6{
 	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
     -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
     box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+	background: #ffffff;
 }
 
 .product{
@@ -63,6 +64,9 @@ h1,h2,h3,h4,h5,h6{
 	display: inline-block;
 	padding: 5px;
 }
+/*.add-form-field{*/
+/*	padding: 10px;*/
+/*}*/
 
 .cart-row{
 	display: flex;

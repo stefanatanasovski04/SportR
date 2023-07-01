@@ -2,9 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AddProduct</title>
+    <style>
+        .btnsize {
+            width: 40px;
+        }
+
+        .itm {
+            width: 25%;
+        }
+
+        .c-label {
+            width: 70%;
+        }
+    </style>
 </head>
 <body>
+{% extends 'store/home.html' %}
+{% load static %}
+{% block content %}
+    <form method='POST' action="" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row">
 
+            <div class="col-lg-4">
+                <p>Add Product:</p>
+                <hr>
+                <div class="add-form-field p-2">
+                    <input required class="form-control" type="text" name="name" placeholder="Product Name">
+                </div>
+                <div class="add-form-field p-2">
+                    <input required class="form-control" type="text" name="price" placeholder="Price">
+                </div>
+                <div class="add-form-field p-2">
+                    <input required class="form-control" type="text" name="availablePieces"
+                           placeholder="Number of available pieces">
+                </div>
+                <div class="add-form-field p-2">
+                    <label for="photo">Upload Photo: </label>
+                    <input class="form-control-file" name="photo" type="file" id="photo">
+                </div>
+                <div style="display: none">
+                      <input id="sizes_input" class="form-control" type="text" name="sizes_input">
+                </div>
+
+            </div>
+
+            <div class="col-lg-8">
+
+                <h4>Choose available sizes: </h4>
+                <hr>
+                <div style="width: 100%" class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4" style="width: 100%">
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check  " value="35" name="add-size" id="35"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary  c-label" for="35">35</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check  " value="36" name="add-size" id="36"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary  c-label" for="36">36</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check" name="add-size" value="37" id="37"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="37">37</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check  " value="38" name="add-size" id="38"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary  c-label" for="38">38</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="39" name="add-size" id="39"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="39">39</label>
+                        </div>
+
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="40" name="add-size" id="40"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="40">40</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="41" name="add-size" id="41"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="41">41</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="42" name="add-size" id="42"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="42">42</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check" value="43" name="add-size" id="43"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="43">43</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="44" name="add-size" id="44"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="44">44</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="45" name="add-size" id="45"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="45">45</label>
+                        </div>
+
+                        <div class="itm">
+                            <input type="checkbox" class="btn-check " value="46" name="add-size" id="46"
+                                   autocomplete="off">
+                            <label class="btn btn-outline-primary c-label" for="46">46</label>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <button type="submit" style="width: 100%" class="btn btn-outline-secondary" id="add-product">Add Product</button>
+    </form>
+
+
+
+    <script>
+        let arr = [];
+        let sz = "";
+        sizes_input = document.getElementById('sizes_input');
+        let selectedSizes = document.querySelectorAll('input[name="add-size"]');
+        console.log(selectedSizes)
+        for (let i=0; i<selectedSizes.length; i++){
+            selectedSizes[i].addEventListener('click', function (){
+                let tmp = selectedSizes[i].value
+                {#console.log("Tmp[" +i + "] " + tmp  )#}
+               if (arr.hasOwnProperty("Elem"+i)){
+                   delete arr['Elem'+i]
+               }else{
+                   arr['Elem'+i] = tmp;
+               }
+                str='';
+                for (let elem in arr){
+                    str += arr[elem] + ","
+                }
+                str =str.slice(0,-1)
+                sizes_input.value = str;
+                console.log(sizes_input.value)
+            })
+        }
+
+
+    </script>
+{% endblock content %}
 </body>
 </html>

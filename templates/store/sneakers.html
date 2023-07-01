@@ -10,8 +10,12 @@
 {% block content %}
     <div class="row">
         {% for product in products %}
-            <div class="col-lg-4">
+            <div style="border-radius: 10px " class="col-lg-4">
+            {% if product.image.url != null %}
                 <img class="thumbnail " src="{{ product.image.url }}">
+                {% else %}
+                <img class="thumbnail " src="{% static 'images/no-image.png' %}">
+                {% endif %}
                 <div class="box-element product">
                     <h6><strong>{{ product.name }}</strong></h6>
                     <hr>

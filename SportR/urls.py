@@ -31,7 +31,10 @@ urlpatterns = [
     path('update_item/', views.update_item, name='update_item'),
     path('delete_item/', views.delete_item, name='delete_item'),
     path('process_order/', views.processOrder, name='process_order'),
-    path('order_successful', views.order_confirmation, name='order_confirmation')
+    path('order_successful', views.order_confirmation, name='order_confirmation'),
+    path('get_add_product/', views.get_add_product, name='get_add_product'),
+    # path('add_product/', views.add_product,name='add_product')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
